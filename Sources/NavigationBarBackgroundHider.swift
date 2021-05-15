@@ -15,7 +15,7 @@ extension UIViewController {
 	}
 
 	/// The main content UIScrollView to use for navigation bar hiding
-	@objc var mainContentScrollViewForNavigationBarHiding: UIScrollView? {
+	@objc public var mainContentScrollViewForNavigationBarHiding: UIScrollView? {
 		return viewIfLoaded as? UIScrollView ?? view.subviews.first as? UIScrollView
 	}
 
