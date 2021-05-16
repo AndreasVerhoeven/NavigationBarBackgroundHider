@@ -48,6 +48,18 @@ extension UIViewController {
 	}
 }
 
+extension UIViewController {
+	/// Make the navigation bar background in this view controller transparent
+	public func makeNavigationBarBackgroundTransparent() {
+		navigationItem.makeNavigationBarBackgroundTransparent(in: navigationController?.navigationBar)
+	}
+
+	/// Make the navigation bar background in this view controller visible
+	public func makeNavigationBarBackgroundVisible() {
+		navigationItem.makeNavigationBarBackgroundVisible(in: navigationController?.navigationBar)
+	}
+}
+
 extension UINavigationItem {
 	/// Configures this navigation item to have a default background
 	///
