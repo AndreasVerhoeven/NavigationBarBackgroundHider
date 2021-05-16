@@ -10,12 +10,12 @@ import ObjectiveC.runtime
 
 extension UIViewController {
 	/// UIViewController subclasses can override this to automatically get an appropriate hiding style
-	@objc public var navigationBarHidingStyle: NavigationBarBackgroundHider.NavigationBarHidingStyle {
+	@objc open public var navigationBarHidingStyle: NavigationBarBackgroundHider.NavigationBarHidingStyle {
 		return .unknown
 	}
 
 	/// The main content UIScrollView to use for navigation bar hiding
-	@objc public var mainContentScrollViewForNavigationBarHiding: UIScrollView? {
+	@objc open public var mainContentScrollViewForNavigationBarHiding: UIScrollView? {
 		return viewIfLoaded as? UIScrollView ?? view.subviews.first as? UIScrollView
 	}
 
