@@ -285,7 +285,7 @@ public class NavigationBarBackgroundHider: NSObject {
 			case .automatic, .unknown:
 
 				let offset = scrollView.contentOffset.y + scrollView.adjustedContentInset.top
-				return offset > scrollOffsetForHidingNavigationBar(for: scrollView)
+				return offset.roundedToNearestPixel > scrollOffsetForHidingNavigationBar(for: scrollView).roundedToNearestPixel
 		}
 	}
 
@@ -312,5 +312,12 @@ public class NavigationBarBackgroundHider: NSObject {
 	public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		guard context == &scrollViewObserverKey else {return super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)}
 		updateNavigationBarBackground(animated: true)
+	}
+}
+
+fileprivate extension CGFloat {
+	var roundedToNearestPixel: CGFloat {
+		let scale = UIScreen.main.scale
+		return (self * scale).rounded() / scale
 	}
 }
